@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import imageio.v2 as im
 f = im.imread("Final Small Stain.png", as_gray=True) # "Final Small Stain.png" OR "Final Map.png"
 # f0 = im.imread("Original Small Stain.jpg", as_gray=True) # "Original Small Stain.jpg" OR "Cropped Map.jpg"
-# plt.imshow(f0,cmap='gray', vmin=0, vmax=255) 
+# plt.imshow(f0,cmap='gray', vmin=0, vmax=255)
 # plt.savefig('Test Image.png')
 
 # Parameters
@@ -17,7 +17,7 @@ for i in range(0,size):
 fnorm = np.sqrt(fnormsquared)
 Tolerance = fnorm/(10**5)
 gamma = 5
-lam = 1 # Tweak this?
+lam = 1
 # Initialization
 u = np.zeros((size,size))
 G = np.zeros((size,size))
