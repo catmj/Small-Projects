@@ -3,7 +3,6 @@ import timeit
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v2 as im
-from PIL import Image, ImageOps
 f = im.imread("Final Small Stain.png", as_gray=True) # "Final Small Stain.png" OR "Final Map.png"
 # f0 = im.imread("Original Small Stain.jpg", as_gray=True) # "Original Small Stain.jpg" OR "Cropped Map.jpg"
 # plt.imshow(f0,cmap='gray', vmin=0, vmax=255) 
