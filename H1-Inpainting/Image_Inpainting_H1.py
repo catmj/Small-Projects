@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v2 as im
 f = im.imread("Final Small Stain.png", mode='F') # "Final Small Stain.png" OR "Final Map.png"
-# f0 = im.imread("Original Small Stain.jpg", as_gray=True) # "Original Small Stain.jpg" OR "Cropped Map.jpg"
+# f0 = im.imread("Original Small Stain.jpg", mode='F') # "Original Small Stain.jpg" OR "Cropped Map.jpg"
 # plt.imshow(f0, cmap='gray', vmin=0, vmax=255)
 # plt.savefig('Test Image.png')
 
