@@ -3,9 +3,9 @@ import timeit
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v2 as im
-f = im.imread("Final Small Stain.png", as_gray=True) # "Final Small Stain.png" OR "Final Map.png"
+f = im.imread("Final Small Stain.png", mode='F') # "Final Small Stain.png" OR "Final Map.png"
 # f0 = im.imread("Original Small Stain.jpg", as_gray=True) # "Original Small Stain.jpg" OR "Cropped Map.jpg"
-# plt.imshow(f0,cmap='gray', vmin=0, vmax=255)
+# plt.imshow(f0, cmap='gray', vmin=0, vmax=255)
 # plt.savefig('Test Image.png')
 
 # Parameters
@@ -16,8 +16,6 @@ for i in range(0,size):
         fnormsquared = fnormsquared + f[i,j]**2
 fnorm = np.sqrt(fnormsquared)
 Tolerance = fnorm/(10**5)
-gamma = 5
-lam = 1
 # Initialization
 u = np.zeros((size,size))
 G = np.zeros((size,size))
@@ -32,8 +30,8 @@ for i in range(0,size):
         if f[i,j] > 10: # Change to black(>10)/white(<245) for Stain/Map.
             D[i,j] = 0
         u[i,j] = f[i,j]
-print('Tolerance =',Tolerance)
-plt.imshow(u,cmap='gray', vmin=0, vmax=255)
+# print('Tolerance =',Tolerance)
+# plt.imshow(u,cmap='gray', vmin=0, vmax=255)
 
 # Laplace Equation Inpainting
 # 0-index gives height. 1-index gives length.
@@ -81,6 +79,7 @@ while norm > Tolerance:
             normsquared = normsquared + (u[i,j]-uprev[i,j])**2
     norm = np.sqrt(normsquared)
 stop = timeit.default_timer()
-print('Iterations =',Iterations)
+# print('Iterations =',Iterations)
 print('Runtime =',stop-start)
-plt.imshow(u,cmap='gray', vmin=0, vmax=255)
+plt.imshow(u, cmap='gray', vmin=0, vmax=255)
+plt.savefig('Test Image.png')
